@@ -208,7 +208,10 @@ int main()
 			printf("Create thread Failed!\n");
 			return EXIT_FAILURE;
 		}
-		pthread_join( threads[ thread_count - 1 ], NULL );//命令主线程等待新创建的线程执行完毕后再退出
+
+		//pthread_join( threads[ thread_count - 1 ], NULL );
+		//命令主线程等待新创建的线程执行完毕后再退出，该命令执行后，主线程会迅速阻塞等待子线程。
+		//具体见博文【 https://www.cnblogs.com/kex1n/p/7111589.html 】
 
 	}
 	close(server_sockfd);
